@@ -1,0 +1,10 @@
+10e4bbcff3671ca349847c8b37a18a4c *DESCRIPTION
+929bac4b13fb097a0b06d3e34762332f *NAMESPACE
+9ec044165b1a61ec8360b36af5b230de *R/predict.ucm.R
+f9d16f0bb07b1c9fd7a50441f82147e9 *R/print.ucm.R
+8018116c99337954cb760e3c6bafebc7 *R/rucm-package.R
+97386d85208f3263dde7775c315a8c01 *R/ucm.R
+3b9cdba69365736a91383980d776fd31 *man/predict.ucm.Rd
+dac80749758fe52c74c736dc9164b2e5 *man/print.ucm.Rd
+95ff615c0493aff11fac2d6eff56383c *man/rucm-package.Rd
+1c54c631a5da4a3979cf37f65e8d8c20 *man/ucm.Rd
