@@ -6,7 +6,7 @@
 #'
 #'@rdname ucm
 #'@name ucm
-#'@param formula an object of class \code{\link{formula}} containing the symbolic description of the model with dependent and independent terms. If there are no independent terms, replace rhs with 0. 
+#'@param formula an object of class \code{formula} containing the symbolic description of the model with dependent and independent terms. If there are no independent terms, replace rhs with 0. 
 #'@param data a required data frame or list containing variables in the model.
 #'@param irregular logical; if irregular component is to be included in the model. Defaults to \code{TRUE}.
 #'@param irregular.var value to fix variance of irregular component.
@@ -106,7 +106,11 @@ ucm <- function(formula, data, irregular = TRUE, irregular.var = NA, level = TRU
  if(length(indep.var) > 0){
    find.indep.var <- match(indep.var, rownames(modelH$T))
    est <- out$alphahat[nrow(out$alphahat), find.indep.var]
- } else est <- NULL
+   se <- sapply(find.indep.var, function(x) mean(sqrt(out$V[x, x, ])))
+ } else{ 
+   est <- NULL
+   se <- NULL
+ }
  if(level){
    find.level <- match("level", rownames(modelH$T))
    s.level <- out$alphahat[,find.level]
@@ -143,6 +147,9 @@ ucm <- function(formula, data, irregular = TRUE, irregular.var = NA, level = TRU
  } else{
    s.cycle <- NULL; vs.cycle <- NULL; est.var.cycle <- NULL
  }
+ if(is.ts(data)){
+   df <- length(data)-length(indep.var)
+   } else df <- nrow(data)-length(indep.var)
  
  mc <- match.call(expand.dots = TRUE)
  
@@ -151,6 +158,8 @@ ucm <- function(formula, data, irregular = TRUE, irregular.var = NA, level = TRU
  res.out$call <- mc
  res.out$model <- modelH
  class(res.out) <- "ucm"
+ attr(res.out, "se") <- se
+ attr(res.out,"df") <- df
  invisible(res.out)
 }
 

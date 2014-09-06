@@ -1,8 +1,8 @@
 Package: rucm
 Type: Package
 Title: Implementation of Unobserved Components Model (UCM) in R
-Version: 0.3
-Date: 2014-08-25
+Version: 0.4
+Date: 2014-09-06
 Author: Kaushik Roy Chowdhury
 Maintainer: Kaushik Roy Chowdhury <kaushikrch@gmail.com>
 Description: Unobserved Components Models (introduced in Harvey, A. (1989),
@@ -13,7 +13,9 @@ Description: Unobserved Components Models (introduced in Harvey, A. (1989),
     predict its behavior.
 License: GPL (>= 2)
 Depends: KFAS
-Packaged: 2014-08-25 09:54:52 UTC; k.roy.chowdhury
+VignetteBuilder: knitr
+Suggests: knitr
+Packaged: 2014-09-07 12:44:26 UTC; k.roy.chowdhury
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2014-08-26 22:55:16
+Date/Publication: 2014-09-07 15:18:17

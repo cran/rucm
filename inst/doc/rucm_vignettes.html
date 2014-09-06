@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Unobserved Component Models in R</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<!--
+%\VignetteIndexEntry{Unobserved Component Models in R}
+%\VignetteEngine{knitr::knitr}
+%\SweaveUTF8
+-->
+
+<h1>Unobserved Component Models in R</h1>
+
+<h2>Introduction</h2>
+
+<p>Unobserved Components Model (UCM) (Harvey (1989)) performs a time series decomposition into components such as trend, seasonal, cycle, and the regression effects due to predictor series. It can be represented as follows:</p>
+
+<p>\[ 
+\begin{aligned}
+y_{t} & = \mu_{t} + \gamma_{t} + \psi_{t} + \sum_{j=1}^{m} \beta_{j} x_{jt} + \epsilon_{t} 
+\end{aligned}
+\]</p>
+
+<p>\[
+\begin{aligned}
+\epsilon_{t} & \sim i.i.d. N(0, \sigma^2_{\epsilon})
+\end{aligned}
+\]</p>
+
+<p>The components \(\mu_{t}\), \(\gamma_{t}\), and \(\psi_{t}\) represent the trend, seasonal, and cyclical components, respectively; the term \(\sum_{j=1}^{m} \beta_{j} x_{jt}\) gives the contribution of regression variables with fixed or time varying regression coefficients. </p>
+
+<h3>Trend</h3>
+
+<p>Trends are loosely defined as the natural tendency of the series to increase or decrease or remain constant over a period of time in absense of any other influencing variable. </p>
+
+<p>UCM can model trend in two ways; first being the random walk model implying that trend remains roughly constant over the time period of the series, and the second being locaaly linear trend having an upward or downward slope.</p>
+
+<h3>Cycle</h3>
+
+<p>Cycles in a time series data exists when the data exhibit rises and falls that are not of fixed period. The duration of these fluctuations is usually of at least 2 years. </p>
+
+<h3>Seasonality</h3>
+
+<p>A seasonal pattern exists when there exists a consistent pattern of variation influenced by seasonal factors (e.g., the quarter of the year, or day of the week, etc.).</p>
+
+<p>For a detailed discussion of all the above three factors see references below.</p>
+
+<h2>rucm-Package</h2>
+
+<p>Package <strong>rucm</strong> has been authored keeping in mind the easier specification of UCM in SAS using <a href="http://support.sas.com/documentation/cdl/en/etsug/60372/HTML/default/viewer.htm#ucm_toc.htm">PROC UCM</a>. <strong>rucm</strong> provides a wrapper function called <code>ucm</code> containing arguments specifying the formula for predictor variables, and other decomposition components such as level, slope, season, cycle, etc. to run UCM. <code>ucm</code> can also handle cases where we want to fix the variance of any of the above decomposition components.</p>
+
+<p>To install <code>rucm</code>:</p>
+
+<pre><code class="r">#install.packages(&quot;rucm&quot;)
+library(rucm)
+</code></pre>
+
+<p>For help and the list of values that are returned see the <code>help(package = rucm)</code> or <code>?ucm</code>.</p>
+
+<p>Here we work with the Nile data which comes along with the <code>datasets</code> package, measures the annual flow of the river Nile at Ashwan, in south Egypt, between 1871â€“1970.</p>
+
+<p>To model the level of Nile annual flow:</p>
+
+<pre><code class="r">modelNile &lt;- ucm(formula = Nile~0, data = Nile, level = TRUE)
+modelNile #Printing method for class ucm
+</code></pre>
+
+<pre><code>#&gt; Call:
+#&gt; ucm(formula = Nile ~ 0, data = Nile, level = TRUE)
+#&gt; 
+#&gt; Parameter estimates:
+#&gt; NULL
+#&gt; 
+#&gt; Estimated variance:
+#&gt; Irregular_Variance     Level_Variance 
+#&gt;          15098.517           1469.175
+</code></pre>
+
+<pre><code class="r">plot(Nile, ylab = &quot;Flow of Nile&quot;)
+lines(modelNile$s.level, col = &quot;blue&quot;)
+legend(&quot;topright&quot;, legend = c(&quot;Observed flow&quot;,&quot;S_level&quot;), col = c(&quot;black&quot;,&quot;blue&quot;), lty = 1)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAkFBMVEX9/v0AAAAAADkAAGUAAP8AOTkAOWUAOY8AZrU5AAA5ADk5AGU5OWU5OY85ZmU5ZrU5j7U5j9plAABlADllAGVlOQBlOY9lZmVlj49ltf2POQCPOTmPZgCPj2WPtY+P29qP2/21ZgC1Zjm124+1/rW1/v3ajzna24/a/rXa/tra/v39tWX924/9/rX9/tr9/v3tuJHkAAAAMHRSTlP//////////////////////////////////////////////////////////////wBipdB4AAAACXBIWXMAAAsSAAALEgHS3X78AAAXb0lEQVR4nO2dCX+kuJmHox42dmfSScrdk6zdOxM7O13Z+Ci+/7dbbt2gEyTe//PrdhUgJMGD0AEUf2gBSf5wdAbAMUA8USCeKBBPFIgnCsQTBeKJAvFEgXiiQDxRIJ4oEE8UiCcKxBMF4okC8USBeKJAPFEgnigQTxSIJwrEEwXiiQLxRIF4okA8USCeKBBPFIgnCsQTBeKJAvFEgXiiQDxRIJ4oEE8UiCcKxBMF4okC8USBeKJAPFEgnigQTxSIJwrEEwXiibIt/v0z6/npxw65AbuxKf729Dh8vt29Zs8M2I9N8R/ffkif4BygxBNlu47/eEAdf0LQqicKxBMF3TmioHFHFHTniIIST5SY7hwDJRMr3s5G1ODQHZRBvOMxBU4g/v1nQ9MO4jeoWvxUxZsqeYjfoGrxnflOOUp8CHWL79Xf/RviA6hdfD9saxqxhfgN6hcfFDWAeKJAPFEgniheO+jadZn7yyIvj27hx4sotyf2F1PDG/34I/HZQde7125fX3zFd/1sY1c7QYm/PV0sS/zEEzxMPDZ5vOrdO3z5x1Dy38ai1pW7fhjlz7+w7sC4fX8ep/vZf/zlcfj89Fu30jC7PxTe//Q8XUiNP9V/fH2O3i7v0KdA2OStC2ijrF7dy91r578/EK73Xfm/9B/vnx876e37l9dxup/9xoQS30/fvV67hd3c60VJ3MR+dTxt8Vu83Q8f3Xm+P9W/PE6lrf/ojoHebW/1Mk33h4V4qu+nu0XdgfGvX+/7Q2Q7cYjPiLf4Xua/ngf/75/Zp+exhfXpuRf//uU/w5l+nh4bA6P4frqvB779/u1/f/59vFcK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" title="plot of chunk modelNile" alt="plot of chunk modelNile" style="display:block; margin: auto" style="display: block; margin: auto;" /></p>
+
+<p>The <code>formula</code> argument in the <code>ucm</code> function takes an argument of the form <code>as.formula</code> in R. For multivariate UC Models, the rhs of the <code>formula</code> should contain the indepedent variables. If the model is univariate, we write a 0 in the rhs of the formula specification. Slope, seasonality, and cyclicity can be included by using <code>slope = TRUE</code>, <code>season = TRUE</code>, <code>cycle = TRUE</code>, specifying the seasonal and cyclical lengths of the series in the arguments <code>season.length</code> and <code>cycle.period</code>, respectively. </p>
+
+<p><code>ucm</code> returns an object of class <code>ucm</code> having the estimate of predictors, estimated variances,  time series of unobserved components (level, slope, whatever is included), and time series of the variances of these components.</p>
+
+<p>To forecast the time series, we use the <code>predict</code> function supplying the model name and number of periods to forecast in <code>n.ahead</code>.</p>
+
+<pre><code class="r">modelNile &lt;- ucm(formula = Nile~0, data = Nile, level = TRUE, slope = TRUE)
+predict(modelNile$model, n.ahead = 12) # Forecasting
+</code></pre>
+
+<pre><code>#&gt; Time Series:
+#&gt; Start = 1971 
+#&gt; End = 1982 
+#&gt; Frequency = 1 
+#&gt;         fit
+#&gt;  [1,] 779.6
+#&gt;  [2,] 776.2
+#&gt;  [3,] 772.8
+#&gt;  [4,] 769.3
+#&gt;  [5,] 765.9
+#&gt;  [6,] 762.5
+#&gt;  [7,] 759.1
+#&gt;  [8,] 755.7
+#&gt;  [9,] 752.3
+#&gt; [10,] 748.9
+#&gt; [11,] 745.5
+#&gt; [12,] 742.1
+</code></pre>
+
+<h2>References</h2>
+
+<ol>
+<li><p>Harvey A. (1989). <em>Forecasting, structural time series models and the Kalman filter</em>. Cambridge New York: Cambridge University Press</p></li>
+<li><p>Helske J (2014). <strong>KFAS</strong>: <em>Kalman filter and Smoothers for Exponential Family State Space Models</em>. R package version 1.0.4-1, URL <a href="http://CRAN.R-project.org/package=KFAS">http://CRAN.R-project.org/package=KFAS</a>.</p></li>
+<li><p><em>Hyndsight</em>. URL <a href="http://robjhyndman.com/hyndsight/cyclicts/">http://robjhyndman.com/hyndsight/cyclicts/</a>.</p></li>
+<li><p>SAS Institute Inc (2010). <em>SAS/ETS 9.22 User&#39;s Guide</em>. SAS Institute Inc., Cary, NC. URL <a href="http://support.sas.com/documentation/cdl/en/etsug/60372/PDF/default/etsug.pdf">http://support.sas.com/documentation/cdl/en/etsug/60372/PDF/default/etsug.pdf</a>.</p></li>
+<li><p>Selukar R (2011). &ldquo;State Space Modeling Using SAS&rdquo;. <em>Journal of Statistical Software</em>, <strong>41</strong>(12), 1-13. URL <a href="http://www.jstatsoft.org/v41/i12/">http://www.jstatsoft.org/v41/i12/</a>.</p></li>
+<li><p>Petris G, Petrone S (2011). &ldquo;State Space Models in R&rdquo;. <em>Journal of Statistical Software</em>, <strong>41</strong>(4), 1-25. URL <a href="http://www.jstatsoft.org/v41/i04/">http://www.jstatsoft.org/v41/i04/</a>.</p></li>
+</ol>
+
+</body>
+
+</html>
