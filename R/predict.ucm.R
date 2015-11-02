@@ -7,6 +7,7 @@
 #'
 #'@param object an object of class \code{SSModel} which can be retrieved from \code{$model} call of an object of class \code{ucm}.
 #'@param n.ahead number of points for which forecasts are to generated.
+#'@param newdata dataset for which prediction is to be made.
 #'@param \dots ignored.
 #'
 #'@export
@@ -16,6 +17,6 @@
 #'modelNile <- ucm(Nile~0, data = Nile, slope = TRUE)
 #'predict(modelNile$model, n.ahead = 12)
 #'
-predict.ucm <- function(object, n.ahead, ...){
-  forecast <- predict(object = object$model, n.ahead = n.ahead)
+predict.ucm <- function(object, n.ahead, newdata, ...){
+  forecast <- predict(object = object$model, n.ahead = n.ahead, newdata = newdata)
 }

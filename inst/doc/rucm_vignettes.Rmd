@@ -1,6 +1,6 @@
 <!--
-%\VignetteIndexEntry{Unobserved Component Models in R}
 %\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{Unobserved Component Models in R}
 %\SweaveUTF8
 -->
 
@@ -14,6 +14,7 @@ opts_chunk$set(
   error = FALSE,
   tidy = FALSE,
   cache = FALSE,
+  fig.path = "~/",
   out.extra='style="display:block; margin: auto"', 
   fig.align="center"
 )
@@ -66,7 +67,7 @@ library(rucm)
 
 For help and the list of values that are returned see the `help(package = rucm)` or `?ucm`.
 
-Here we work with the Nile data which comes along with the `datasets` package, measures the annual flow of the river Nile at Ashwan, in south Egypt, between 1871–1970.
+Here we work with the Nile data which comes along with the `datasets` package, measures the annual flow of the river Nile at Ashwan, in south Egypt, between 1871 and ��1970.
 
 To model the level of Nile annual flow:
 

@@ -5,6 +5,7 @@ opts_chunk$set(
   error = FALSE,
   tidy = FALSE,
   cache = FALSE,
+  fig.path = "~/",
   out.extra='style="display:block; margin: auto"', 
   fig.align="center"
 )

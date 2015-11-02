@@ -3,6 +3,7 @@
 #'@param x ucm object
 #'@param ... Ignored.
 #'@rdname print.ucm
+#'@importFrom stats as.formula is.ts predict printCoefmat pt terms var
 #'@export
 print.ucm <- function(x, ...){
   var.est <- c(x$irr.var, x$est.var.level, x$est.var.slope, x$est.var.season, x$est.var.cycle)
