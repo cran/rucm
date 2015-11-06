@@ -7,19 +7,6 @@
 Unobserved Component Models in R
 =======================================
 
-```{r setup, echo = FALSE, message = FALSE}
-library(knitr)
-opts_chunk$set(
-  comment = "#>",
-  error = FALSE,
-  tidy = FALSE,
-  cache = FALSE,
-  fig.path = "~/",
-  out.extra='style="display:block; margin: auto"', 
-  fig.align="center"
-)
-```
-
 ## Introduction
 
 Unobserved Components Model (UCM) (Harvey (1989)) performs a time series decomposition into components such as trend, seasonal, cycle, and the regression effects due to predictor series. It can be represented as follows:
@@ -67,11 +54,11 @@ library(rucm)
 
 For help and the list of values that are returned see the `help(package = rucm)` or `?ucm`.
 
-Here we work with the Nile data which comes along with the `datasets` package, measures the annual flow of the river Nile at Ashwan, in south Egypt, between 1871 and ��1970.
+Here we work with the Nile data which comes along with the `datasets` package, measures the annual flow of the river Nile at Ashwan, in south Egypt, between 1871 and 1970.
 
 To model the level of Nile annual flow:
 
-```{r modelNile, echo = TRUE}
+```{r modelNile, echo = TRUE, cache=FALSE}
 modelNile <- ucm(formula = Nile~0, data = Nile, level = TRUE)
 modelNile #Printing method for class ucm
 plot(Nile, ylab = "Flow of Nile")

@@ -1,7 +1,7 @@
 Package: rucm
 Type: Package
 Title: Implementation of Unobserved Components Model (UCM)
-Version: 0.5
+Version: 0.6
 Date: 2015-11-02
 Author: Kaushik Roy Chowdhury
 Maintainer: Kaushik Roy Chowdhury <kaushikrch@gmail.com>
@@ -18,6 +18,6 @@ Suggests: knitr
 BugReports: https://github.com/kaushikrch/rucm/issues
 RoxygenNote: 5.0.0
 NeedsCompilation: no
-Packaged: 2015-11-02 15:15:33 UTC; k.roy.chowdhury
+Packaged: 2015-11-06 07:53:21 UTC; k.roy.chowdhury
 Repository: CRAN
-Date/Publication: 2015-11-02 18:12:16
+Date/Publication: 2015-11-06 10:28:01

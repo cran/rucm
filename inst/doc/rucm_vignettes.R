@@ -1,20 +1,8 @@
-## ----setup, echo = FALSE, message = FALSE--------------------------------
-library(knitr)
-opts_chunk$set(
-  comment = "#>",
-  error = FALSE,
-  tidy = FALSE,
-  cache = FALSE,
-  fig.path = "~/",
-  out.extra='style="display:block; margin: auto"', 
-  fig.align="center"
-)
-
 ## ----install, echo = T, message = F, eval = T----------------------------
 #install.packages("rucm")
 library(rucm)
 
-## ----modelNile, echo = TRUE----------------------------------------------
+## ----modelNile, echo = TRUE, cache=FALSE---------------------------------
 modelNile <- ucm(formula = Nile~0, data = Nile, level = TRUE)
 modelNile #Printing method for class ucm
 plot(Nile, ylab = "Flow of Nile")
